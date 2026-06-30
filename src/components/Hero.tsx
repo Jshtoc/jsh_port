@@ -1,0 +1,34 @@
+export default function Hero() {
+  return (
+    <section className="min-h-screen flex items-center justify-center px-6 pt-20">
+      <div className="max-w-3xl text-center">
+        <p className="text-primary font-semibold tracking-widest uppercase text-sm mb-4">
+          Hello, I'm
+        </p>
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <span className="text-white">Your </span>
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Name
+          </span>
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-400 mb-10">
+          Frontend Developer · React · TypeScript
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#projects"
+            className="px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-semibold transition-colors duration-200"
+          >
+            View Projects
+          </a>
+          <a
+            href="#contact"
+            className="px-8 py-3 border border-gray-600 hover:border-primary text-gray-300 hover:text-primary rounded-lg font-semibold transition-colors duration-200"
+          >
+            Contact Me
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
