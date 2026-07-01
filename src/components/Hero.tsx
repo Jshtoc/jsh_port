@@ -6,13 +6,13 @@ export default function Hero() {
           Hello, I'm
         </p>
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          <span className="text-white">Your </span>
+          <span className="text-white">정승호 </span>
           <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Name
+            Frontend
           </span>
         </h1>
         <p className="text-xl md:text-2xl text-gray-400 mb-10">
-          Frontend Developer · React · TypeScript
+          Frontend Developer · Vue · React · TypeScript · 3~5년 경력
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a

@@ -17,7 +17,7 @@ export default function App() {
         <Contact />
       </main>
       <footer className="text-center py-6 text-gray-500 text-sm border-t border-gray-800">
-        © 2025 Portfolio. Built with React + Vite.
+        © 2026 정승호. Built with React + Vite.
       </footer>
     </div>
   )

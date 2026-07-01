@@ -12,26 +12,28 @@ const skills: SkillCategory[] = [
   {
     category: 'Frontend',
     items: [
-      { name: 'React', level: 90 },
+      { name: 'Vue 2 / Vue 3 / Nuxt', level: 90 },
+      { name: 'React / Next.js', level: 85 },
       { name: 'TypeScript', level: 85 },
-      { name: 'Tailwind CSS', level: 80 },
-      { name: 'Next.js', level: 70 },
+      { name: 'Tailwind CSS / SCSS', level: 80 },
     ],
   },
   {
-    category: 'Backend',
+    category: 'Backend / Infra',
     items: [
-      { name: 'Node.js', level: 65 },
-      { name: 'Express', level: 60 },
-      { name: 'PostgreSQL', level: 55 },
+      { name: 'AWS (S3, ECR, EC2, SSM)', level: 75 },
+      { name: 'Docker / GitHub Actions', level: 75 },
+      { name: 'Next.js Route Handlers', level: 70 },
+      { name: 'Prisma / PostgreSQL', level: 65 },
     ],
   },
   {
-    category: 'Tools',
+    category: 'Tools & AI',
     items: [
+      { name: 'Claude Code (바이브 코딩)', level: 90 },
       { name: 'Git', level: 85 },
-      { name: 'Figma', level: 70 },
-      { name: 'Docker', level: 50 },
+      { name: 'Vuex / Pinia / Zustand', level: 80 },
+      { name: 'Figma', level: 75 },
     ],
   },
 ]
