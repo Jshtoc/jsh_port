@@ -1,4 +1,6 @@
-export default function Hero() {
+import { Link } from 'react-router-dom'
+
+export default function HomePage() {
   return (
     <section className="min-h-screen flex items-center justify-center px-6 pt-20">
       <div className="max-w-3xl text-center">
@@ -15,18 +17,18 @@ export default function Hero() {
           Frontend Developer · Vue · React · TypeScript · 3~5년 경력
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#projects"
+          <Link
+            to="/projects"
             className="px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-semibold transition-colors duration-200"
           >
             View Projects
-          </a>
-          <a
-            href="#contact"
+          </Link>
+          <Link
+            to="/contact"
             className="px-8 py-3 border border-gray-600 hover:border-primary text-gray-300 hover:text-primary rounded-lg font-semibold transition-colors duration-200"
           >
             Contact Me
-          </a>
+          </Link>
         </div>
       </div>
     </section>

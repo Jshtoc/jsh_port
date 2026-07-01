@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>정승호 | Frontend Developer</title>
     <meta name="description" content="정승호 - Vue / React / TypeScript 프론트엔드 개발자 포트폴리오" />
+    <script type="text/javascript">
+      // public/404.html이 쿼리스트링에 인코딩해 보낸 원래 경로를 복원한다.
+      // https://github.com/rafgraph/spa-github-pages
+      ;(function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&')
+            })
+            .join('?')
+          window.history.replaceState(null, '', l.pathname.slice(0, -1) + decoded + l.hash)
+        }
+      })(window.location)
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,24 +1,25 @@
-import Header from './components/Header'
-import Hero from './components/Hero'
-import About from './components/About'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import ScrollToTop from './components/ScrollToTop'
+import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
+import SkillsPage from './pages/Skills/SkillsPage'
+import ProjectsPage from './pages/Projects/ProjectsPage'
+import ContactPage from './pages/Contact/ContactPage'
 
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-      <footer className="text-center py-6 text-gray-500 text-sm border-t border-gray-800">
-        © 2026 정승호. Built with React + Vite.
-      </footer>
-    </div>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <ScrollToTop />
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="skills" element={<SkillsPage />} />
+          <Route path="projects" element={<ProjectsPage />} />
+          <Route path="contact" element={<ContactPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }

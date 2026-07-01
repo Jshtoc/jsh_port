@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>정승호 | Frontend Developer</title>
+    <script type="text/javascript">
+      // GitHub Pages는 SPA 클라이언트 라우팅을 모르기 때문에
+      // 없는 경로는 여기(404)로 떨어진다. 경로를 쿼리스트링에 인코딩해
+      // index.html로 되돌려 보내고, index.html에서 원래 경로로 복원한다.
+      // https://github.com/rafgraph/spa-github-pages
+      var pathSegmentsToKeep = 1
+      var l = window.location
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      )
+    </script>
+  </head>
+  <body></body>
+</html>
