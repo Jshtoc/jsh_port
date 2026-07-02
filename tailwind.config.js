@@ -4,8 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#6366f1',
-        secondary: '#8b5cf6',
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        'primary-dark': 'rgb(var(--color-primary-dark) / <alpha-value>)',
+        secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+        'secondary-dark': 'rgb(var(--color-secondary-dark) / <alpha-value>)',
+        'surface-dark': 'rgb(var(--color-surface-dark) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['Pretendard', 'system-ui', 'sans-serif'],

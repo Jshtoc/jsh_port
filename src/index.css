@@ -3,11 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-primary: 84 243 167;
+    --color-primary-dark: 10 143 74;
+    --color-secondary: 45 212 191;
+    --color-secondary-dark: 26 127 114;
+    --color-surface-dark: 11 31 23;
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-gray-950 text-gray-100;
+    @apply bg-white text-slate-800;
   }
 }

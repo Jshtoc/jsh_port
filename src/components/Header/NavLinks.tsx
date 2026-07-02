@@ -9,10 +9,19 @@ interface NavLinksProps {
   links: NavLink[]
   className: string
   linkClassName?: string
+  activeClassName?: string
+  inactiveClassName?: string
   onLinkClick?: () => void
 }
 
-export default function NavLinks({ links, className, linkClassName = '', onLinkClick }: NavLinksProps) {
+export default function NavLinks({
+  links,
+  className,
+  linkClassName = '',
+  activeClassName = 'text-primary-dark',
+  inactiveClassName = 'text-slate-600 hover:text-primary-dark',
+  onLinkClick,
+}: NavLinksProps) {
   return (
     <ul className={className}>
       {links.map((link) => (
@@ -21,7 +30,7 @@ export default function NavLinks({ links, className, linkClassName = '', onLinkC
             to={link.href}
             onClick={onLinkClick}
             className={({ isActive }) =>
-              `transition-colors duration-200 ${isActive ? 'text-primary' : 'text-gray-300 hover:text-primary'} ${linkClassName}`
+              `transition-colors duration-200 ${isActive ? activeClassName : inactiveClassName} ${linkClassName}`
             }
           >
             {link.label}

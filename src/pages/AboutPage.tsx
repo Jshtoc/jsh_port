@@ -3,15 +3,15 @@ export default function AboutPage() {
     <section className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          About <span className="text-primary">Me</span>
+          About <span className="text-primary-dark">Me</span>
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="flex justify-center">
-            <div className="w-64 h-64 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/30 flex items-center justify-center">
+            <div className="w-64 h-64 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/40 flex items-center justify-center">
               <span className="text-8xl">👨‍💻</span>
             </div>
           </div>
-          <div className="space-y-4 text-gray-300 leading-relaxed">
+          <div className="space-y-4 text-slate-600 leading-relaxed">
             <p>
               안녕하세요! Vue와 React를 넘나들며 서비스를 구축하는 3~5년차 프론트엔드 개발자 정승호입니다.
             </p>
@@ -30,13 +30,13 @@ export default function AboutPage() {
                 href="https://github.com/Jshtoc"
                 target="_blank"
                 rel="noreferrer"
-                className="text-primary hover:text-secondary transition-colors"
+                className="text-primary-dark hover:text-secondary-dark transition-colors"
               >
                 GitHub →
               </a>
               <a
                 href="/resume.pdf"
-                className="text-primary hover:text-secondary transition-colors"
+                className="text-primary-dark hover:text-secondary-dark transition-colors"
               >
                 Resume →
               </a>

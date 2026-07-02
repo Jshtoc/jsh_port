@@ -32,10 +32,10 @@ const skills: SkillCategory[] = [
 
 export default function SkillsPage() {
   return (
-    <section className="py-24 px-6 bg-gray-900/50">
+    <section className="py-24 px-6 bg-slate-50">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Tech <span className="text-primary">Skills</span>
+          Tech <span className="text-primary-dark">Skills</span>
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           {skills.map((group) => (

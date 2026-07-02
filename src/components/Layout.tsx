@@ -8,7 +8,7 @@ export default function Layout() {
       <main>
         <Outlet />
       </main>
-      <footer className="text-center py-6 text-gray-500 text-sm border-t border-gray-800">
+      <footer className="text-center py-6 text-slate-400 text-sm border-t border-slate-200">
         © 2026 정승호. Built with React + Vite.
       </footer>
     </div>
