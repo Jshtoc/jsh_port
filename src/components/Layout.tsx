@@ -1,16 +1,41 @@
-import { Outlet } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useLocation, useOutlet } from 'react-router-dom'
 import Header from './Header/Header'
+import LoadingSpinner from './LoadingSpinner'
 
 export default function Layout() {
+  const location = useLocation()
+  const outlet = useOutlet()
+  const [displayOutlet, setDisplayOutlet] = useState(outlet)
+  const [displayPath, setDisplayPath] = useState(location.pathname)
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    if (location.pathname !== displayPath) {
+      setLoading(true)
+      const timer = setTimeout(() => {
+        setDisplayOutlet(outlet)
+        setDisplayPath(location.pathname)
+        setLoading(false)
+      }, 500)
+      return () => clearTimeout(timer)
+    }
+  }, [location.pathname, displayPath, outlet])
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-surface-dark">
       <Header />
-      <main>
-        <Outlet />
+      <main className={`transition-opacity duration-300 ${loading ? 'opacity-0' : 'opacity-100'}`}>
+        {displayOutlet}
       </main>
-      <footer className="text-center py-6 text-slate-400 text-sm border-t border-slate-200">
-        © 2026 정승호. Built with React + Vite.
-      </footer>
+
+      <div
+        className={`fixed inset-0 z-50 bg-surface-dark flex items-center justify-center transition-opacity duration-300 ${
+          loading ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <LoadingSpinner />
+      </div>
     </div>
   )
 }

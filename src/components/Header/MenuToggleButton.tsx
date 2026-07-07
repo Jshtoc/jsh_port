@@ -1,13 +1,12 @@
 interface MenuToggleButtonProps {
   open: boolean
   onClick: () => void
-  light?: boolean
 }
 
-export default function MenuToggleButton({ open, onClick, light = false }: MenuToggleButtonProps) {
+export default function MenuToggleButton({ open, onClick }: MenuToggleButtonProps) {
   return (
     <button
-      className={`md:hidden ${light ? 'text-white/80 hover:text-primary' : 'text-slate-600 hover:text-primary-dark'}`}
+      className="md:hidden fixed top-4 right-6 z-50 text-white/80 hover:text-primary transition-colors duration-200"
       onClick={onClick}
       aria-label="Toggle menu"
     >
