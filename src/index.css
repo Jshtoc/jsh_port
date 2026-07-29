@@ -23,6 +23,9 @@
     --color-fg: 14 14 13;
     --color-muted: 130 124 112;
     --color-line: 222 218 207;
+
+    --color-primary: 234 88 12;
+    --color-primary-dark: 154 52 18;
   }
 
   html {
