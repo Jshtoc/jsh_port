@@ -6,7 +6,7 @@ interface MenuToggleButtonProps {
 export default function MenuToggleButton({ open, onClick }: MenuToggleButtonProps) {
   return (
     <button
-      className="md:hidden fixed top-4 right-6 z-50 text-white/80 hover:text-primary transition-colors duration-200"
+      className="md:hidden text-fg hover:text-muted transition-colors duration-200"
       onClick={onClick}
       aria-label="Toggle menu"
     >

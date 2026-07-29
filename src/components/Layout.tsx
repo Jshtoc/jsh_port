@@ -23,14 +23,14 @@ export default function Layout() {
   }, [location.pathname, displayPath, outlet])
 
   return (
-    <div className="min-h-screen bg-surface-dark">
+    <div className="min-h-screen bg-bg">
       <Header />
       <main className={`transition-opacity duration-300 ${loading ? 'opacity-0' : 'opacity-100'}`}>
         {displayOutlet}
       </main>
 
       <div
-        className={`fixed inset-0 z-50 bg-surface-dark flex items-center justify-center transition-opacity duration-300 ${
+        className={`fixed inset-0 z-50 bg-bg flex items-center justify-center transition-opacity duration-300 ${
           loading ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
       >

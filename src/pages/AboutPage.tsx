@@ -11,6 +11,7 @@ import githubIcon from '../assets/icons/github.svg'
 import jiraIcon from '../assets/icons/jira.svg'
 import postmanIcon from '../assets/icons/postman.svg'
 import bitbucketIcon from '../assets/icons/bitbucket.svg'
+import Reveal from '../components/Reveal'
 
 interface AboutSection {
   label: string
@@ -77,62 +78,68 @@ const skillGroups: SkillGroup[] = [
 
 export default function AboutPage() {
   return (
-    <section className="min-h-screen bg-surface-dark text-white py-24 px-6 sm:px-12">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-16"><span className="text-primary">About</span> Me</h2>
+    <section id="about" className="min-h-screen bg-bg text-fg py-24 px-6 sm:px-12 border-t border-line">
+      <div>
+        <Reveal>
+          <h2 className="font-display text-5xl md:text-7xl font-black tracking-tight mb-16">
+            About <span className="text-primary">Me</span>
+          </h2>
+        </Reveal>
 
         <div className="grid md:grid-cols-[280px_1fr] gap-12 mb-20">
-          <div className="flex flex-col items-center gap-4">
-            <div className="w-64 h-64 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/40 overflow-hidden">
+          <Reveal delay={100} className="flex flex-col items-center gap-4">
+            <div className="w-64 h-64 rounded-2xl border border-line overflow-hidden">
               <img src={profileImg} alt="내 사진" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col gap-3 w-64">
               <Link
-                to="/projects"
+                to="/#work"
                 className="px-6 py-3 bg-primary hover:bg-primary-dark text-slate-900 hover:text-white rounded-full font-semibold text-sm text-center transition-colors duration-200"
               >
-                Projects 보기 →
+                Work 보기 →
               </Link>
               <a
                 href="https://github.com/Jshtoc"
                 target="_blank"
                 rel="noreferrer"
-                className="px-5 py-2.5 bg-primary hover:bg-primary-dark text-slate-900 hover:text-white rounded-full font-semibold text-sm text-center transition-colors duration-200"
+                className="font-display px-5 py-2.5 bg-primary hover:bg-primary-dark text-slate-900 hover:text-white rounded-full font-semibold text-sm text-center transition-colors duration-200"
               >
                 GitHub
               </a>
             </div>
-          </div>
+          </Reveal>
 
           <div className="space-y-10">
-            {sections.map((section) => (
-              <div key={section.label}>
-                <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-2">{section.label}</p>
+            {sections.map((section, i) => (
+              <Reveal key={section.label} delay={150 + i * 100}>
+                <p className="font-display text-primary text-sm font-semibold tracking-widest uppercase mb-2">{section.label}</p>
                 <h3 className="text-xl font-bold mb-3">{section.title}</h3>
-                <p className="text-white/70 leading-relaxed">{section.body}</p>
-              </div>
+                <p className="text-muted leading-relaxed">{section.body}</p>
+              </Reveal>
             ))}
           </div>
         </div>
 
         <div>
-          <h3 className="text-2xl font-bold mb-8">Skill & Tools</h3>
+          <Reveal>
+            <h3 className="font-display text-2xl font-bold mb-8">Skill & Tools</h3>
+          </Reveal>
           <div className="grid sm:grid-cols-3 gap-8">
-            {skillGroups.map((group) => (
-              <div key={group.label}>
-                <p className="text-white/50 text-sm font-semibold tracking-widest uppercase mb-3">{group.label}</p>
+            {skillGroups.map((group, i) => (
+              <Reveal key={group.label} delay={i * 100}>
+                <p className="font-display text-muted text-sm font-semibold tracking-widest uppercase mb-3">{group.label}</p>
                 <div className="flex flex-wrap gap-3">
                   {group.tools.map((tool) => (
                     <div
                       key={tool.name}
                       title={tool.name}
-                      className="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-2"
+                      className="w-12 h-12 bg-white border border-line rounded-lg flex items-center justify-center p-2"
                     >
                       <img src={tool.icon} alt={tool.name} className="w-full h-full object-contain" />
                     </div>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

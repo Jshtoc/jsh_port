@@ -4,17 +4,21 @@ import aiCloudLogo from '../../assets/projects/ai-cloud-logo.png'
 import tdirectshopImg1 from '../../assets/projects/tdirectshop-1.jpg'
 import tdirectshopImg2 from '../../assets/projects/tdirectshop-2.jpg'
 import tdirectshopImg3 from '../../assets/projects/tdirectshop-3.jpg'
+import tdirectshopBanner from '../../assets/projects/tdirectshop-banner.png'
 import sktTechAcademyImg from '../../assets/projects/skt-tech-academy-screenshot.png'
 import sktTechAcademyStoryImg from '../../assets/projects/skt-tech-academy-story.png'
-import aiLayerImg from '../../assets/projects/ai-layer.jpg'
+import staBanner from '../../assets/projects/sta-banner.png'
+import hanaBanner from '../../assets/projects/hana-banner.png'
+import aiLayerBanner from '../../assets/projects/ai-layer-banner.png'
 import dagachiImg from '../../assets/projects/dagachi.png'
 import dagachiAppImg from '../../assets/projects/dagachi-app.png'
 import dagachiPlanImg from '../../assets/projects/dagachi-plan.png'
 import dagachiPlanDetailImg from '../../assets/projects/dagachi-plan-detail.png'
+import dagachiBanner from '../../assets/projects/dagachi-banner.png'
 import wwpLogo from '../../assets/projects/wwp-logo.svg'
 import weddingPlanImg1 from '../../assets/projects/wedding-plan-1.png'
 import weddingPlanImg2 from '../../assets/projects/wedding-plan-2.png'
-import vueIcon from '../../assets/icons/vue.svg'
+import wwpBanner from '../../assets/projects/wwp-banner.png'
 
 export interface ProjectDetailSection {
   title: string
@@ -26,6 +30,11 @@ export interface ProjectMeta {
   value: string
 }
 
+export interface ProjectContribution {
+  label: string
+  percentage: number
+}
+
 export interface Project {
   slug: string
   title: string
@@ -35,9 +44,9 @@ export interface Project {
   demo?: string
   logo?: string
   image?: string
+  imageBg?: string
   images?: string[]
-  imagePosition?: 'center' | 'top'
-  toolIcons?: string[]
+  contributions?: ProjectContribution[]
   meta?: ProjectMeta[]
   details?: ProjectDetailSection[]
 }
@@ -50,9 +59,10 @@ export const projects: Project[] = [
       'SKT 공식 온라인 판매 채널의 유선(인터넷·TV·전화) 파트를 기획·디자인 협의부터 배포까지 100% 단독 개발. Vue 2 Options API → Vue 3 Composition API, Nuxt 2 → Nuxt 4 마이그레이션을 SSR 구조 재설계까지 포함해 주도했습니다.',
     tags: ['Vue 3', 'Nuxt 4', 'TypeScript', 'Pinia'],
     logo: tLogo,
-    image: tdirectshopImg2,
+    image: tdirectshopBanner,
+    imageBg: '#3617CE',
+    contributions: [{ label: 'My Contribution', percentage: 100 }],
     images: [tdirectshopImg2, tdirectshopImg1, tdirectshopImg3],
-    imagePosition: 'top',
     details: [
       {
         title: '서비스 구성',
@@ -102,9 +112,10 @@ export const projects: Project[] = [
       'Claude Code 기반 바이브 코딩(Vibe Coding)으로 개발한 풀스택 서비스. Next.js App Router + React Server Component 구조를 설계하고, 지원 신청 폼·관리자 대시보드 등 주요 페이지와 공통 UI 컴포넌트 25종을 구현했습니다.',
     tags: ['Next.js 16', 'React 19', 'TypeScript', 'Prisma'],
     logo: staLogo,
-    image: sktTechAcademyImg,
+    image: staBanner,
+    imageBg: '#FFFFFF',
+    contributions: [{ label: 'My Contribution', percentage: 80 }],
     images: [sktTechAcademyImg, sktTechAcademyStoryImg],
-    imagePosition: 'top',
     demo: 'https://skttechacademy.com/',
     meta: [
       { label: '기간', value: '2025.01 ~ 2025.04' },
@@ -131,12 +142,32 @@ export const projects: Project[] = [
   },
   {
     slug: 'ai-cloud',
-    title: 'AI-Cloud 플랫폼 (SKT)',
+    title: 'AI-Cloud 플랫폼 (하나은행)',
     description:
-      '클라우드 리소스 모니터링 대시보드 컴포넌트를 Vue 3 Composition API로 개발하고, 공통 UI 컴포넌트 라이브러리 설계에 참여해 재사용률과 디자인 일관성을 높였습니다.',
+      '클라우드 리소스 모니터링 플랫폼에서 표·테이블 구조의 공통 컴포넌트 개발을 주로 담당했습니다. 재사용 가능한 테이블 로직을 설계해 재사용률을 높이고, 게시글·연구 데이터가 실시간으로 반영되도록 구현했습니다.',
     tags: ['Vue 3', 'Pinia', 'Vite'],
     logo: aiCloudLogo,
-    toolIcons: [vueIcon],
+    image: hanaBanner,
+    imageBg: '#009490',
+    contributions: [{ label: 'My Contribution', percentage: 50 }],
+    images: [hanaBanner],
+    details: [
+      {
+        title: '핵심 기능',
+        items: [
+          '클라우드 리소스 모니터링 대시보드의 표·테이블 기반 공통 컴포넌트 개발',
+          '게시글, 연구 데이터 등 다양한 콘텐츠가 실시간으로 반영되는 테이블 로직 구현',
+        ],
+      },
+      {
+        title: '기술적 특징',
+        items: [
+          'Vue 3 Composition API 기반으로 테이블 공통 컴포넌트를 설계해 여러 화면에서 재사용률을 높임',
+          '게시글·연구 데이터 실시간 반영 로직 구현으로 데이터 최신성 확보',
+          '공통 UI 컴포넌트 라이브러리 설계에 참여해 재사용률과 디자인 일관성을 높임',
+        ],
+      },
+    ],
   },
   {
     slug: 'ai-layer',
@@ -145,19 +176,55 @@ export const projects: Project[] = [
       'React 기반으로 개발한 프로젝트로, T 다이렉트샵과 연계되어 동작하는 서비스입니다. React, Next.js, TypeScript를 활용해 페이지를 구현했습니다.',
     tags: ['React', 'Next.js', 'TypeScript'],
     logo: tLogo,
-    image: aiLayerImg,
-    imagePosition: 'top',
+    image: aiLayerBanner,
+    imageBg: '#3617CE',
+    contributions: [{ label: 'My Contribution', percentage: 75 }],
+    images: [aiLayerBanner],
   },
   {
     slug: 'dagachi',
     title: '다가치 (사이드 프로젝트)',
     description:
-      '팀원들과 협업하여 진행한 사이드 프로젝트로, 기획을 100% 담당했습니다. React, Next.js, TypeScript 기반으로 회사 동호회 매칭 서비스의 프론트엔드를 구현했습니다.',
-    tags: ['React', 'Next.js', 'TypeScript', 'Zustand'],
-    image: dagachiImg,
+      '회사 동호회의 수기 출석·일정 관리를 대체하기 위해 기획한 동호회 매칭·운영 서비스로, 기획을 100% 담당하고 팀원들과 함께 프론트엔드를 구현했습니다.',
+    tags: ['Next.js', 'React', 'TypeScript', 'Zustand', 'TanStack Query'],
+    image: dagachiBanner,
+    imageBg: '#4151DF',
+    contributions: [
+      { label: '기획', percentage: 100 },
+      { label: '프론트엔드', percentage: 60 },
+    ],
     images: [dagachiImg, dagachiAppImg, dagachiPlanImg, dagachiPlanDetailImg],
-    imagePosition: 'top',
     github: 'https://github.com/dagotit/soworks-club',
+    details: [
+      {
+        title: '핵심 기능',
+        items: [
+          '동호회(그룹) 생성·가입·목록 조회 — 회사 내 여러 동호회를 탐색하고 참여 신청',
+          'react-big-calendar 기반 모임 일정 관리 — 동호회별 일정 등록 및 캘린더 뷰 제공',
+          '출석 체크 — 하루 1회 제한 로직을 적용한 출첵 기능으로 수기 출석부를 대체',
+          '실시간 알림 — 안 읽은 알림 목록·읽음 처리를 지원하는 알림함',
+          '관리자(운영진) 권한 분리 — 미들웨어 단에서 관리자 여부를 검증해 관리자 전용 페이지 접근 제어',
+          'Daum 우편번호 서비스 연동 — 모임 장소 등록 시 주소 검색',
+        ],
+      },
+      {
+        title: '기술적 특징',
+        items: [
+          'Next.js App Router의 라우트 그룹((auth)/(admin)/(calendar)/(group)/(main)/(setting))으로 인증·관리자·일반 사용자 영역을 명확히 분리',
+          '미들웨어 레벨에서 refreshToken 쿠키 기반 인증 가드 구현 — 비로그인 시 로그인 페이지로 리다이렉트, 관리자 페이지는 별도 검증 API로 이중 체크',
+          'Zustand로 로그인·캘린더·출석·알림·관리자 권한 등 도메인별 상태를 스토어 단위로 분리 관리',
+          'TanStack Query + Axios로 서버 상태 관리와 로딩·에러 처리를 일원화',
+          'Spring Boot 기반 백엔드 API와 연동해 동호회·일정·출석 데이터를 처리(백엔드는 팀원과 협업)',
+        ],
+      },
+      {
+        title: '기획자로서 배운 점',
+        items: [
+          '수기로 관리되던 동호회 출석·일정 문제를 발견하고 서비스 방향을 직접 설정 — 기획 전 과정을 단독으로 담당',
+          '프론트엔드 개발에도 함께 참여하며 기획 의도가 실제 화면 설계·상태 관리 구조에 반영되는 과정을 경험',
+        ],
+      },
+    ],
   },
   {
     slug: 'wedding-plan',
@@ -166,7 +233,9 @@ export const projects: Project[] = [
       '결혼 준비 전 과정(웨딩홀 비교, 신혼집 임장, 예산·자산 관리, 업체 리스트, 체크리스트)을 관리하는 부부 전용 올인원 웨딩 플래닝 웹앱입니다. 사이드 프로젝트로 기획부터 개발까지 전 과정을 단독으로 진행했습니다.',
     tags: ['Next.js 16', 'React 19', 'TypeScript', 'Supabase'],
     logo: wwpLogo,
-    image: weddingPlanImg1,
+    image: wwpBanner,
+    imageBg: '#0D0F14',
+    contributions: [{ label: 'My Contribution', percentage: 100 }],
     images: [weddingPlanImg1, weddingPlanImg2],
     github: 'https://github.com/Jshtoc/wedding-plan',
     demo: 'https://wedding-plan-zeta.vercel.app/',

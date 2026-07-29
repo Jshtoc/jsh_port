@@ -8,14 +8,34 @@
     --color-primary-dark: 10 143 74;
     --color-secondary: 45 212 191;
     --color-secondary-dark: 26 127 114;
-    --color-surface-dark: 11 31 23;
+    --color-cream: 240 236 228;
+    --color-ink: 14 14 13;
+
+    /* theme-aware surface tokens (dark by default) */
+    --color-bg: 14 14 13;
+    --color-fg: 240 236 228;
+    --color-muted: 150 145 133;
+    --color-line: 42 42 39;
+  }
+
+  :root[data-theme='light'] {
+    --color-bg: 240 236 228;
+    --color-fg: 14 14 13;
+    --color-muted: 130 124 112;
+    --color-line: 222 218 207;
   }
 
   html {
     scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
   }
 
   body {
-    @apply bg-white text-slate-800;
+    @apply bg-bg text-fg transition-colors duration-300;
   }
 }

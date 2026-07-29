@@ -1,4 +1,4 @@
-import { NavLink as RouterNavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export interface NavLink {
   label: string
@@ -11,6 +11,7 @@ interface NavLinksProps {
   linkClassName?: string
   activeClassName?: string
   inactiveClassName?: string
+  activeHref?: string
   onLinkClick?: () => void
 }
 
@@ -20,21 +21,22 @@ export default function NavLinks({
   linkClassName = '',
   activeClassName = 'text-primary-dark',
   inactiveClassName = 'text-slate-600 hover:text-primary-dark',
+  activeHref,
   onLinkClick,
 }: NavLinksProps) {
   return (
     <ul className={className}>
       {links.map((link) => (
         <li key={link.href}>
-          <RouterNavLink
-            to={link.href}
+          <Link
+            to={`/${link.href}`}
             onClick={onLinkClick}
-            className={({ isActive }) =>
-              `transition-colors duration-200 ${isActive ? activeClassName : inactiveClassName} ${linkClassName}`
-            }
+            className={`font-display transition-colors duration-200 ${
+              activeHref === link.href ? activeClassName : inactiveClassName
+            } ${linkClassName}`}
           >
             {link.label}
-          </RouterNavLink>
+          </Link>
         </li>
       ))}
     </ul>
